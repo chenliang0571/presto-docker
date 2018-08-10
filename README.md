@@ -1,12 +1,15 @@
-https://prestodb.io/presto-admin/docs/current/installation/presto-configuration.html
+# presto-docker
 
-docker run --rm --privileged foo sh -c "/bin/echo 3 > /proc/sys/vm/drop_caches"
+https://prestodb.io/presto-admin/docs/current/installation/presto-configuration.html
+```bash
+docker pull prestodb/centos6-oj8:81233a7
+docker run --rm --privileged centos6-oj8 sh -c "/bin/echo 3 > /proc/sys/vm/drop_caches"
+
 docker build -t foo .
 docker run -it -p 8080:8080 boo
+```
 
-
-
-
+```bash
 mkdir catalog
 echo '#connector.name=jmx' > catalog/jmx.properties
 echo 'connector.name=localfile
@@ -31,3 +34,4 @@ echo 'com.facebook.presto=DEBUG' > log.properties
 echo 'node.environment=production
 node.id=ffffffff-ffff-ffff-ffff-ffffffffffff
 node.data-dir=/var/presto/data' > node.properties
+```
